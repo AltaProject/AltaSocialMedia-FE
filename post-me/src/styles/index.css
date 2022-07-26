@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg-bluepm {
+  background-color: #2b26bf;
+}
+
+.bg-screen {
+  background-color: #e3e3e3;
+}
+
+.fc-blackpm {
+  color: #323232;
+}
