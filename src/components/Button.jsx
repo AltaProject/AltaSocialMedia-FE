@@ -24,5 +24,4 @@ const ButtonLarge = (props) => {
   );
 };
 
-
 export { ButtonSmall, ButtonLarge };
