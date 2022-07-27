@@ -1,21 +1,15 @@
 import React from "react";
 import { HiOutlineMail, HiPhone, HiLocationMarker } from "react-icons/hi";
-// import Header from "../components/Header";
-import logo from "../image/ori.png";
 import background from "../image/blake-connally-IKUYGCFmfw4-unsplash.jpg";
 import profile from "../image/profile1.png";
-import { ButtonSmall, ButtonLarge } from "../components/Button";
+import { ButtonLarge } from "../components/Button";
+import Header from "../components/Header";
 
 export default function MyProfile() {
   return (
     // header
     <div className="bg-screen ">
-      <header className="h-18 bg-slate-400 sticky top-0 flex justify-between items-center">
-        <img className="w-32 p-6" src={logo} alt="logo" />
-        <div c>
-          <ButtonSmall label="Log Out" />
-        </div>
-      </header>
+      <Header />
 
       <div className=" mt-5 mx-2 md:mx-auto  md:w-3/4 lg:w-3/5 xl:w-1/2 ">
         {/* background profile */}
