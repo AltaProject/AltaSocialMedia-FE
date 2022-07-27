@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
-// import HomePage from "./pages/HomePage";
-import MyProfile from "./pages/MyProfile";
-// import EditProfile from "./pages/EditProfile";
+import App from "./routes";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <MyProfile />
+    <App />
   </>
 );
