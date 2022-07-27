@@ -10,8 +10,12 @@
   background-color: #e3e3e3;
 }
 
-.fc-blackpm {
+.text-blackpm {
   color: #323232;
+}
+
+.text-bluepm {
+  color: #2b26bf;
 }
 
 body {
