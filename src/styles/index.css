@@ -18,6 +18,11 @@
   color: #2b26bf;
 }
 
+.borderpm {
+  border: solid black;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
