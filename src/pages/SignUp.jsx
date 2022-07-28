@@ -34,7 +34,7 @@ export default function SignUp() {
         <div className="text-center">
           <ButtonLarge label="Create Account" />
         </div>
-        <p className="text-center text-blackpm m-4 lg:text-xl">
+        <p className="text-center text-blackpm mt-4 lg:text-xl">
           Have an account?
           <button className="ml-1 hover:text-green-900 text-blue-800">
             Log In
