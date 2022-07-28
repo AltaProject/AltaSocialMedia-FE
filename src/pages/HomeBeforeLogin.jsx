@@ -11,7 +11,6 @@ import { BiBookmark } from "react-icons/bi";
 
 const HomeBeforeLogin = () => {
   return (
-    
       <div className="bg-screen w-full h-auto">
         <Header/>
         <div className="card border-4-white rounded-md mt-12 mb-3 bg-white w-96 h-auto mx-auto justify-center md:w-2/4 lg:w-3/4">

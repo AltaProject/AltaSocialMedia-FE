@@ -12,10 +12,13 @@ const Header = () => {
         <Link to="/"><img className='w-36 p-6 lg:w-2/12' src={logo} alt='logo'/>
         </Link>
         <div className='p-3'>
-          <Link to="/signup">
-          {location.pathname==="/afterlogin"? <div><ButtonSmall label="Logout"/>
-          <p>My Profile</p></div>: <ButtonSmall label="Login"/>}
+          <Link to="/login">
+          {location.pathname==="/afterlogin" || location.pathname==="/comment" || location.pathname==="/profile"  ? <div><ButtonSmall label="Logout"/><Link to="/profile"><p>My Profile</p></Link></div>
+          :<ButtonSmall label="Login"/>}
           </Link>
+          {/* {location.pathname==="/profile" ? <ButtonSmall label="Logout"/>
+          :<ButtonSmall label="Login"/>} */}
+          
         </div>
       </div>
     )

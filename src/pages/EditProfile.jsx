@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonLarge } from "../components/Button";
 import Input from "../components/Input";
+import { Link } from 'react-router-dom';
 
 export default function EditProfile() {
   return (
@@ -31,7 +32,7 @@ export default function EditProfile() {
         </form>
       </div>
       <div className="text-center mt-5 ">
-        <ButtonLarge label="Save Updates" />
+        <Link to="/profile"><ButtonLarge label="Save Updates" /></Link>
       </div>
     </div>
   );
