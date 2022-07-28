@@ -4,6 +4,7 @@ import HomeAfterLogin from '../pages/HomeAfterLogin'
 import HomeBeforeLogin from '../pages/HomeBeforeLogin'
 import MyProfile from '../pages/MyProfile'
 import PostWithComment from '../pages/PostWithComment'
+import SignUp from '../pages/SignUp'
  
 const App= () => {
   return (
@@ -13,6 +14,7 @@ const App= () => {
             <Route path="/" element={<HomeBeforeLogin/>} />
             <Route path="profile" element={<MyProfile/>} />
             <Route path="comment" element={<PostWithComment/>} />
+            <Route path="signup" element={<SignUp/>} />
             <Route path="*" element={<div>404 Error not Found</div>}/>
         </Routes> 
     </BrowserRouter>
