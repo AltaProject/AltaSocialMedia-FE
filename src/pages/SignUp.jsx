@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/index.css";
 import Input from "../components/Input";
 import { ButtonLarge } from "../components/Button";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   return (
@@ -32,13 +33,14 @@ export default function SignUp() {
           </div>
         </form>
         <div className="text-center">
-          <ButtonLarge label="Create Account" />
+          <Link to="/login"><ButtonLarge label="Create Account"/></Link>
         </div>
         <p className="text-center text-blackpm mt-4 lg:text-xl">
           Have an account?
-          <button className="ml-1 hover:text-green-900 text-blue-800">
+          <Link to="/login"><button className="ml-1 hover:text-green-900 text-blue-800">
             Log In
-          </button>
+          </button></Link>
+        
         </p>
       </div>
     </>

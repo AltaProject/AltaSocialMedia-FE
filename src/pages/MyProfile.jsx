@@ -4,6 +4,7 @@ import background from "../image/blake-connally-IKUYGCFmfw4-unsplash.jpg";
 import profile from "../image/profile1.png";
 import { ButtonLarge } from "../components/Button";
 import Header from "../components/Header";
+import { Link } from 'react-router-dom';
 
 export default function MyProfile() {
   return (
@@ -65,7 +66,7 @@ export default function MyProfile() {
       </div>
 
       <div className="text-center mt-10 ">
-        <ButtonLarge label="Edit Profile" />
+        <Link to="/editprofile"><ButtonLarge label="Edit Profile" /></Link>
       </div>
 
       <div className="mt-12">

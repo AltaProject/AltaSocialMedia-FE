@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../image/ori.png";
 import Input from "../components/Input";
 import { ButtonLarge } from "../components/Button";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -12,7 +13,7 @@ export default function Login() {
          sm:w-3/5 md:w-6/12 lg:w-5/12 xl:w-5/12 flex justify-between items-center"
         >
           <h2 className="text-bluepm text-xl xxs:text-2xl xs:text-3xl sm:text-4xl xl:text-5xl font-bold">
-            Log In to
+            Login to
           </h2>
           <img
             className=" w-28 xxs:w-32 xs:w-36 sm:w-52 md:w-56 lg:w-60 xl:w-72"
@@ -27,13 +28,14 @@ export default function Login() {
           <Input type="password" placeholder="Password" />
         </div>
         <div className="mt-20 text-center">
-          <ButtonLarge label="Login In" />
+          <Link to="/afterlogin"><ButtonLarge label="Login"/></Link>
         </div>
         <p className="text-center text-blackpm mt-7 lg:text-xl">
           Dont't have an account?
-          <button className="ml-1 hover:text-green-900 text-blue-800">
+          <Link to="/signup"> <button className="ml-1 hover:text-green-900 text-blue-800">
             Sign Up
-          </button>
+          </button></Link>
+         
         </p>
       </div>
     </>
