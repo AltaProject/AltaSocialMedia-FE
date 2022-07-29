@@ -18,11 +18,11 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
-      name: Nama,
-      username: Username,
-      email: Email,
-      password: Password,
-      numberPhone: No_HP,
+      name,
+      username,
+      email,
+      password,
+      numberPhone,
     };
 
     axios
