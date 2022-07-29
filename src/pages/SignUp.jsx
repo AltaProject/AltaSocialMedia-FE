@@ -7,6 +7,9 @@ import axios from "axios";
 import { TokenContext } from "../utils/context";
 
 export default function SignUp() {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [numberPhone, setNumberPhone] = useState(1);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { token, setToken } = useContext(TokenContext);
@@ -15,9 +18,27 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
-      email,
-      password,
+      name: Nama,
+      username: Username,
+      email: Email,
+      password: Password,
+      numberPhone: No_HP,
     };
+
+    axios
+      .post("https://postme.site/register", body)
+      .then((response) => {
+        console.log(response);
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+        setToken(token);
+        alert("Sign Up Sucess");
+        navigate("/login");
+      })
+      .catch((error) => {
+        alert("Sign Up failed");
+      })
+      .finally(() => {});
   };
 
   return (
@@ -27,31 +48,43 @@ export default function SignUp() {
           Sign Up
         </h2>
 
-        <form>
-          <div className="mb-5 text-center">
-            <Input type="text" placeholder="Update your name" />
-          </div>
-          <div className="mb-5 text-center">
-            <Input type="text" placeholder="Update your username" />
-          </div>
-          <div className="mb-5 text-center">
-            <Input type="tel" placeholder="Update your number phone" />
-          </div>
-          <div className="mb-5 text-center">
-            <Input type="email" placeholder="Update your email" />
-          </div>
-          <div className="mb-5 text-center">
-            <Input type="text" placeholder="Update your address" />
-          </div>
-          <div className="mb-5 text-center">
-            <Input type="password" placeholder="Update your password" />
-          </div>
+        <form
+          className="mb-7 mt-10 text-center flex flex-col gap-5"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <Input
+            type="text"
+            placeholder="Update your name"
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <Input
+            type="text"
+            placeholder="Update your username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <Input
+            type="tel"
+            placeholder="Update your number phone"
+            onChange={(e) => setNumberPhone(e.target.value)}
+          />
+
+          <Input
+            type="email"
+            placeholder="Update your email"
+            onChange={(e) => setEmail(e.target.valuer)}
+          />
+
+          <Input
+            type="password"
+            placeholder="Update your password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <ButtonLarge label="Create Account" />
         </form>
-        <div className="text-center">
-          <Link to="/login">
-            <ButtonLarge label="Create Account" />
-          </Link>
-        </div>
+
         <p className="text-center text-blackpm mt-4 lg:text-xl">
           Have an account?
           <Link to="/login">

@@ -25,7 +25,7 @@ export default function Login() {
         const { token } = response.data;
         localStorage.setItem("token", token);
         setToken(token);
-        alert("Login Sukses");
+        alert("Login Sucess");
         navigate("/afterlogin");
       })
       .catch((error) => {
