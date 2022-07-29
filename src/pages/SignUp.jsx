@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../styles/index.css";
 import Input from "../components/Input";
 import { ButtonLarge } from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { TokenContext } from "../utils/context";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { token, setToken } = useContext(TokenContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      email,
+      password,
+    };
+  };
+
   return (
     <>
       <div className="bg-screen h-screen">
@@ -33,14 +48,17 @@ export default function SignUp() {
           </div>
         </form>
         <div className="text-center">
-          <Link to="/login"><ButtonLarge label="Create Account"/></Link>
+          <Link to="/login">
+            <ButtonLarge label="Create Account" />
+          </Link>
         </div>
         <p className="text-center text-blackpm mt-4 lg:text-xl">
           Have an account?
-          <Link to="/login"><button className="ml-1 hover:text-green-900 text-blue-800">
-            Log In
-          </button></Link>
-        
+          <Link to="/login">
+            <button className="ml-1 hover:text-green-900 text-blue-800">
+              Log In
+            </button>
+          </Link>
         </p>
       </div>
     </>
