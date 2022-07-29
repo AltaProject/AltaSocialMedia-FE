@@ -1,10 +1,39 @@
-import React from "react";
 import logo from "../image/ori.png";
 import Input from "../components/Input";
 import { ButtonLarge } from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
+import { TokenContext } from "../utils/context";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { token, setToken } = useContext(TokenContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      email,
+      password,
+    };
+
+    axios
+      .post("https://postme.site/login", body)
+      .then((response) => {
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+        setToken(token);
+        alert("Login Sucess");
+        navigate("/afterlogin");
+      })
+      .catch((error) => {
+        alert("login failed");
+      })
+      .finally(() => {});
+  };
+
   return (
     <>
       <div className="bg-screen h-screen ">
@@ -21,22 +50,34 @@ export default function Login() {
             alt="logo"
           />
         </div>
-        <div className="mb-7 mt-10 text-center">
-          <Input type="text" placeholder="Phone, email, or username" />
-        </div>
-        <div className="mb-7 text-center">
-          <Input type="password" placeholder="Password" />
-        </div>
-        <div className="mt-20 text-center">
-          <Link to="/afterlogin"><ButtonLarge label="Login"/></Link>
-        </div>
-        <p className="text-center text-blackpm mt-7 lg:text-xl">
-          Dont't have an account?
-          <Link to="/signup"> <button className="ml-1 hover:text-green-900 text-blue-800">
-            Sign Up
-          </button></Link>
-         
-        </p>
+
+        <form
+          className="mb-7 mt-10 text-center flex flex-col gap-10"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <Input
+            type="text"
+            placeholder="Phone, email, or username"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <ButtonLarge label="Login" />
+
+          <p className="text-center text-blackpm mt-7 lg:text-xl">
+            Dont't have an account?
+            <Link to="/signup">
+              {" "}
+              <button className="ml-1 hover:text-green-900 text-blue-800">
+                Sign Up
+              </button>
+            </Link>
+          </p>
+        </form>
       </div>
     </>
   );
